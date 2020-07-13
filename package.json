@@ -1,5 +1,5 @@
 {
-  "name": "@danmarshall/deckgl-typings",
+  "name": "@privicy/deckgl-typings",
   "version": "4.2.0",
   "description": "TypeScript declaration files for deck.gl",
   "types": "deck.gl/index.d.ts",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danmarshall/deckgl-typings.git"
+    "url": "git+https://github.com/privicy/deckgl-typings.git"
   },
   "keywords": [
     "deck.gl",

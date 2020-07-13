@@ -1013,7 +1013,7 @@ declare module "@deck.gl/core/lifecycle/component" {
 	import { Deck } from "@deck.gl/core";
 	import Viewport from "@deck.gl/core/viewports/viewport";
 	export default class Component<P> {
-		constructor();
+		constructor(props:P);
 		clone(newProps: P): any;
 		get stats(): any;
 		_initState(): void;
@@ -1154,8 +1154,7 @@ declare module "@deck.gl/core/lib/layer" {
 		equal?: (value1: any, value2: any) => boolean;
 		deprecatedFor?: string | string[];
 	}
-	export default class Layer<D> extends Component<LayerProps<D>> {
-		constructor(props: LayerProps<D>);
+	export default class Layer<D,P extends LayerProps<D> = LayerProps<D>> extends Component<P> {
 		toString(): string;
 		setState(updateObject: any): void;
 		setNeedsRedraw(redraw?: boolean): void;
@@ -1263,7 +1262,7 @@ declare module "@deck.gl/core/lib/composite-layer" {
 	export interface CompositeLayerProps<D> extends LayerProps<D> {
 		_subLayerProps?: Object;
 	}
-	export default class CompositeLayer<D> extends Layer<D> {
+	export default class CompositeLayer<D,P extends CompositeLayerProps<D> = CompositeLayerProps<D>> extends Layer<D,P> {
 		get isComposite(): boolean;
 		get isLoaded(): any;
 		getSubLayers(): any;

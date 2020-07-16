@@ -357,7 +357,7 @@ declare module "@deck.gl/aggregation-layers/screen-grid-layer/screen-grid-cell-l
 			fs: string;
 			modules: any[];
 		};
-		initializeState(context: any): void;
+		initializeState(params: any): void;
 		shouldUpdateState({ changeFlags }: { changeFlags: any }): any;
 		updateState({
 			oldProps,
@@ -402,7 +402,7 @@ declare module "@deck.gl/aggregation-layers/screen-grid-layer/screen-grid-layer"
 	}
 	export default class ScreenGridLayer<D> extends GridAggregationLayer<D> {
 		constructor(props: ScreenGridLayerProps<D>);
-		initializeState(context: any): void;
+		initializeState(params: any): void;
 		shouldUpdateState({ changeFlags }: { changeFlags: any }): any;
 		updateState(opts: any): void;
 		renderLayers(): any;
@@ -613,7 +613,7 @@ declare module "@deck.gl/aggregation-layers/cpu-grid-layer/cpu-grid-layer" {
 	}
 	export default class CPUGridLayer<D> extends AggregationLayer<D> {
 		constructor(props: CPUGridLayerProps<D>);
-		initializeState(context: any): void;
+		initializeState(params: any): void;
 		updateState(opts: any): void;
 		getPickingInfo({ info }: { info: any }): any;
 		_onGetSublayerColor(cell: any): any;
@@ -695,7 +695,7 @@ declare module "@deck.gl/aggregation-layers/hexagon-layer/hexagon-layer" {
 	export default class HexagonLayer<D> extends AggregationLayer<D> {
 		constructor(props: HexagonLayerProps<D>);
 		shouldUpdateState({ changeFlags }: { changeFlags: any }): any;
-		initializeState(context: any): void;
+		initializeState(params: any): void;
 		updateState(opts: any): void;
 		updateRadiusAngle(vertices: any): void;
 		convertLatLngToMeterOffset(hexagonVertices: any): number[][];
@@ -794,7 +794,7 @@ declare module "@deck.gl/aggregation-layers/contour-layer/contour-layer" {
 	}
 	export default class ContourLayer<D> extends GridAggregationLayer<D> {
 		constructor(props: ContourLayerProps<D>);
-		initializeState(context: any): void;
+		initializeState(params: any): void;
 		updateState(opts: any): void;
 		renderLayers(): any[];
 		updateAggregationState(opts: any): void;
@@ -838,7 +838,7 @@ declare module "@deck.gl/aggregation-layers/gpu-grid-layer/gpu-grid-cell-layer" 
 	}
 	export default class GPUGridCellLayer<D,P extends GPUGridCellLayerProps<D> = GPUGridCellLayerProps<D>> extends Layer<D,P> {
 		getShaders(): any;
-		initializeState(context: any): void;
+		initializeState(params: any): void;
 		_getModel(gl: any): any;
 		draw({ uniforms }: { uniforms: any }): void;
 		bindUniformBuffers(
@@ -880,7 +880,7 @@ declare module "@deck.gl/aggregation-layers/gpu-grid-layer/gpu-grid-layer" {
 	}
 	export default class GPUGridLayer<D> extends GridAggregationLayer<D> {
 		constructor(props: GPUGridLayerProps<D>);
-		initializeState(context: any): void;
+		initializeState(params: any): void;
 		updateState(opts: any): void;
 		getHashKeyForIndex(index: any): string;
 		getPositionForIndex(index: any): any[];
@@ -929,7 +929,7 @@ declare module "@deck.gl/aggregation-layers/grid-layer/grid-layer" {
 	}
 	export default class GridLayer<D> extends CompositeLayer<D> {
 		constructor(props: GridLayerProps<D>);
-		initializeState(context: any): void;
+		initializeState(params: any): void;
 		updateState({
 			oldProps,
 			props,
@@ -980,7 +980,7 @@ declare module "@deck.gl/aggregation-layers/heatmap-layer/triangle-layer" {
 			fs: string;
 			modules: any[];
 		};
-		initializeState(context: any): void;
+		initializeState(params: any): void;
 		_getModel(gl: any): any;
 		draw({ uniforms }: { uniforms: any }): void;
 	}
@@ -1017,7 +1017,7 @@ declare module "@deck.gl/aggregation-layers/heatmap-layer/heatmap-layer" {
 	}
 	export default class HeatmapLayer<D> extends AggregationLayer<D> {
 		constructor(props: HeatmapLayerProps<D>);
-		initializeState(context: any): void;
+		initializeState(params: any): void;
 		shouldUpdateState({ changeFlags }: { changeFlags: any }): any;
 		updateState(opts: any): void;
 		renderLayers(): any;

@@ -129,6 +129,7 @@ declare module "@deck.gl/mesh-layers/scenegraph-layer/scenegraph-layer" {
 		_imageBasedLightingEnvironment?: any;
 	}
 	export default class ScenegraphLayer <D,P extends ScenegraphLayerProps<D> = ScenegraphLayerProps<D>> extends Layer<D,P> {
+		constructor(props: P);
 		initializeState(params: any): void;
 		updateState(params: any): void;
 		finalizeState(): void;

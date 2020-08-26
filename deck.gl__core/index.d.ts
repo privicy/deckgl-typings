@@ -1010,20 +1010,7 @@ declare module "@deck.gl/core/lifecycle/component-state" {
 	}
 }
 declare module "@deck.gl/core/lifecycle/component" {
-	import { Deck } from "@deck.gl/core";
-	import Viewport from "@deck.gl/core/viewports/viewport";
-	import LayerManager from "@deck.gl/core/lib/layer-manager"
-	export interface LayerContext {
-		layerManager: LayerManager;
-		deck: Deck;
-		viewport: Viewport;
-
-  		// General resources
-  		mousePosition: [number,number] | null;
-  		
-		// GL Resources
-		gl: WebGL2RenderingContext;
-	}
+	import { LayerContext } from "@deck.gl/core/lib/layer";
 	export default class Component<P> {
 		constructor(props:P);
 		clone(newProps: P): any;
@@ -1082,9 +1069,23 @@ declare module "@deck.gl/core/lib/layer-state" {
 declare module "@deck.gl/core/lib/layer" {
 	import AttributeManager from "@deck.gl/core/lib/attribute/attribute-manager";
 	import Component from "@deck.gl/core/lifecycle/component";
-	import { PickInfo } from "@deck.gl/core/lib/deck";
+	import Deck, { PickInfo } from "@deck.gl/core/lib/deck";
 	import * as hammerjs from "hammerjs";
 	import { RGBAColor } from "@deck.gl/core/utils/color";
+	import LayerManager from "@deck.gl/core/lib/layer-manager"
+	import Viewport from "@deck.gl/core/viewports/viewport";
+
+	export interface LayerContext {
+		layerManager: LayerManager;
+		deck: Deck;
+		viewport: Viewport;
+
+  		// General resources
+  		mousePosition: [number,number] | null;
+  		
+		// GL Resources
+		gl: WebGL2RenderingContext;
+	}
 
 	export interface BaseTransitionTiming {
 		enter?: (v: number) => number;
@@ -1167,6 +1168,7 @@ declare module "@deck.gl/core/lib/layer" {
 		deprecatedFor?: string | string[];
 	}
 	export default class Layer<D,P extends LayerProps<D> = LayerProps<D>> extends Component<P> {
+		constructor(props: LayerProps<D>);
 		toString(): string;
 		setState(updateObject: any): void;
 		setNeedsRedraw(redraw?: boolean): void;

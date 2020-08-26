@@ -21,6 +21,9 @@
   "bugs": {
     "url": "https://github.com/danmarshall/deckgl-typings/issues"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "homepage": "https://github.com/danmarshall/deckgl-typings#readme",
   "devDependencies": {
     "@luma.gl/core": "*",
